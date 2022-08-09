@@ -1,0 +1,109 @@
+{
+    "name": "input",
+    "maps": [
+        {
+            "name": "teclas jogo",
+            "id": "670c10e4-6762-417d-8829-afc1def4fa7a",
+            "actions": [
+                {
+                    "name": "Esquerda Direita",
+                    "type": "Button",
+                    "id": "e20f59d4-b28e-42d5-9bb5-ee3a2bfee5bf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "pulo",
+                    "type": "Button",
+                    "id": "996fcc78-674a-4cbe-8e0b-7102acb10dd1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "setas",
+                    "id": "9314c5e9-aa68-4184-8794-07af0909e32a",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Esquerda Direita",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "270c2ae4-9de8-4be0-b042-66895884216c",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Esquerda Direita",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "79ee8d38-ffae-4e32-9da5-1edbf14c1035",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Esquerda Direita",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "asdw",
+                    "id": "f4fa2a26-1132-4589-854f-4dfbddf9410b",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Esquerda Direita",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "a00fa834-1ecd-4e5e-80bf-f2275ba87eeb",
+                    "path": "<Keyboard>/#(A)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Esquerda Direita",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "5e109634-7f6a-4297-af40-5d7f3d6d6d7c",
+                    "path": "<Keyboard>/#(D)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Esquerda Direita",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "a2a3a4fa-43d7-430c-b04b-01dcb8690e22",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "pulo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
