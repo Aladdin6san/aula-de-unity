@@ -101,6 +101,17 @@
                     "action": "pulo",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "876ccaa6-455b-4b50-8e84-60997e81a795",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "pulo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
