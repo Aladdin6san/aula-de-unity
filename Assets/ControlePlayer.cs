@@ -5,15 +5,25 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class ControlePlayer : MonoBehaviour
 {
+    const float RAIO_JUMPABLE = 0.05f;
     [Range(0f,15f)]
     [SerializeField]
     float forcaPulo=1f;
+    [SerializeField]
     LayerMask layerMask;
     float sentido = 0;// o nome desse sujeito é campo, que é uma variável declarada no escopo da classe, logo pode ser utilizado em qualquer um dos métodos função>start,update)
     // Start is called before the first frame update
     bool noChao=false;
+    int contadorPulo = 0;
+    const int TotalPulos = 1;
+
+    // armarzenar os componentes
+    Animator animator;
+    Rigidbody2D rigidbody;
     void Start()
     {
+        animator = GetComponent<Animator>();
+        rigidbody = GetComponent<Rigidbody2D>();
         for (int i = 0; i < 10; i++) ;
     }
 
@@ -23,8 +33,7 @@ public class ControlePlayer : MonoBehaviour
         //GetComponent<Rigidbody2D>().velocity = new Vector2(0.5f * sentido, 0);
         Vector2 velAtual= GetComponent<Rigidbody2D>().velocity; 
         velAtual.x = 5f * sentido;
-        GetComponent<Rigidbody2D>().velocity = velAtual;
-        GetComponent<Animator>().SetBool("GROUNDED", noChao);
+        rigidbody.velocity = velAtual;
 
        
     }
@@ -35,7 +44,14 @@ public class ControlePlayer : MonoBehaviour
         if (hit != null)
         {
             noChao = true;
+             contadorPulo = 0;
         }
+        else
+        {
+            noChao = false;
+
+        }
+        animator.SetBool("GROUNDED", noChao);
     }
     public void Sentido(CallbackContext context)
     {
@@ -45,21 +61,22 @@ public class ControlePlayer : MonoBehaviour
         if (sentido != 0)
         {
             gameObject.transform.localScale = new Vector3(sentido, 1, 1);
-            GetComponent<Animator>().SetBool("WALKING", true);
+            animator.SetBool("WALKING", true);
         }
         else
         {
-            GetComponent<Animator>().SetBool("WALKING", false);
+            animator.SetBool("WALKING", false);
         }
     }
     public void Pulo(CallbackContext context)
     {
-        if(context.ReadValue<float>()==1)
+        if (context.ReadValue<float>() == 1 && (noChao || contadorPulo < TotalPulos))
         {
-            GetComponent<Rigidbody2D>(). AddForce(new Vector2(0, forcaPulo), ForceMode2D.Impulse); // no vector = (x,y)
-            GetComponent<Animator>().SetTrigger("JUMP");
-            GetComponent<Animator>().SetBool("GROUNDED", false);
+            rigidbody. AddForce(new Vector2(0, forcaPulo), ForceMode2D.Impulse); // no vector = (x,y)
+            animator.SetTrigger("JUMP");
+            animator.SetBool("GROUNDED", false);
             noChao = false;
+            contadorPulo++;
         }
     }
     

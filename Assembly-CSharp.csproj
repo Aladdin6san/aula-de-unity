@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ControlePlayer.cs" />
+    <Compile Include="Assets\ControleVilao.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
