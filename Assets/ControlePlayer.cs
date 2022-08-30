@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.InputSystem.InputAction;
 
 public class ControlePlayer : MonoBehaviour
 {
     const float RAIO_JUMPABLE = 0.05f;
-    [Range(0f,15f)]
+    [Range(0f, 15f)]
     [SerializeField]
-    float forcaPulo=1f;
+    float forcaPulo = 1f;
     [SerializeField]
     LayerMask layerMask;
+    [SerializeField]
+    Image barraEnergia;
     float sentido = 0;// o nome desse sujeito é campo, que é uma variável declarada no escopo da classe, logo pode ser utilizado em qualquer um dos métodos função>start,update)
     // Start is called before the first frame update
     bool noChao=false;
@@ -53,6 +56,7 @@ public class ControlePlayer : MonoBehaviour
             else if (hit.CompareTag("mal"))
             {
                 Destroy(hit.gameObject);
+                barraEnergia.fillAmount += 0.5f;
             }
         }
         else
@@ -98,7 +102,20 @@ public class ControlePlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("mal"))
         {
             transform.position = checkpoint; //volta ao último chekpoint
+            barraEnergia.fillAmount -= 0.2f; //be.FillAmount = be.FillAmount- 0.2f
+            if (barraEnergia.fillAmount == 0) ;
+            {
+                //rotina gamer over
+            }
         }
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("checkpoint"))
+        {
+            checkpoint = collision.transform.position;
+            collision.gameObject.GetComponent<Animator>().SetBool("checked", true);
+            Destroy(collision.gameObject.GetComponent<BoxCollider2D>());
+        }
+    }
 }

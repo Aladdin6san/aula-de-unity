@@ -40,6 +40,7 @@ public class ControleVilao : MonoBehaviour
         else
         {
             animator.SetBool("WALKING", false);
+            rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
         }
             
         
