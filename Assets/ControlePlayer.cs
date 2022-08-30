@@ -20,11 +20,13 @@ public class ControlePlayer : MonoBehaviour
     // armarzenar os componentes
     Animator animator;
     Rigidbody2D rigidbody;
+
+    Vector3 checkpoint;
     void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
-        for (int i = 0; i < 10; i++) ;
+        checkpoint = transform.position;
     }
 
     // Update is called once per frame
@@ -43,8 +45,15 @@ public class ControlePlayer : MonoBehaviour
         Debug.Log(hit);
         if (hit != null)
         {
-            noChao = true;
-             contadorPulo = 0;
+            if (hit.CompareTag("chao"))
+            {
+                noChao = true;
+                contadorPulo = 0;
+            }
+            else if (hit.CompareTag("mal"))
+            {
+                Destroy(hit.gameObject);
+            }
         }
         else
         {
@@ -79,6 +88,17 @@ public class ControlePlayer : MonoBehaviour
             contadorPulo++;
         }
     }
-    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position, RAIO_JUMPABLE);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("mal"))
+        {
+            transform.position = checkpoint; //volta ao último chekpoint
+        }
+    }
 
 }

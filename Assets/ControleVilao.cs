@@ -27,16 +27,22 @@ public class ControleVilao : MonoBehaviour
         if (hit.collider != null)
         {
             if (transform.position.x > hit.point.x)
-            {
+
                 transform.localScale = new Vector3(-1, 1, 1);
-            }
+
             else
-            {
+
                 transform.localScale = new Vector3(1, 1, 1);
-            }
-                rigidbody.velocity = new Vector3(transform.localScale.x, 0);
-            
+
+            rigidbody.velocity = new Vector3(transform.localScale.x, 0);
+            animator.SetBool("WALKING", true);
         }
+        else
+        {
+            animator.SetBool("WALKING", false);
+        }
+            
+        
     }
     void OnDrawGizmos()
     {
