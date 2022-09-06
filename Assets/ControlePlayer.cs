@@ -25,6 +25,17 @@ public class ControlePlayer : MonoBehaviour
     Rigidbody2D rigidbody;
 
     Vector3 checkpoint;
+
+    private void Awake()
+    {
+        GameObject[] gObjetos = GameObject.FindGameObjectsWithTag("Principal");
+        if (gObjetos.Length>1)
+        {
+            Vector3 pos = gameObject.transform.position;
+            gObjetos[0].transform.GetChild(1).transform.position = pos; //valido somente para o primeiro filho
+            Destroy(gObjetos[gObjetos.Length-1]);
+        }
+    }
     void Start()
     {
         animator = GetComponent<Animator>();

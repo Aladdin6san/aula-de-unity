@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3160ACB4-BA58-B1E5-4E94-AC082339C390}</ProjectGuid>
+    <ProjectGuid>{65C53E32-3B1D-28C3-12C9-C4467A39C744}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -59,6 +59,7 @@
     <Compile Include="Assets\ControlePlayer.cs" />
     <Compile Include="Assets\ControleVilao.cs" />
     <Compile Include="Assets\tradeScene.cs" />
+    <Compile Include="Assets\NaoDestruir.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
