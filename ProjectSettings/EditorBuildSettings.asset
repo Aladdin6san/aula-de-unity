@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/fase 2.unity
     guid: 533aef2d5f8f3034aa4d592d100ee922
+  - enabled: 1
+    path: Assets/Scenes/aulaunity.unity
+    guid: 24c1032c6c12e0641b0e9b99d1f5ec75
   m_configObjects: {}
